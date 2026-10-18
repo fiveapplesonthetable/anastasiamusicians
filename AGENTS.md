@@ -27,11 +27,14 @@ Explain things simply, make small safe changes, and show her what changed. `READ
   teaches in person in Hackney and Islington; violin and piano lessons; private events (house concerts, birthdays and anniversaries, dinner parties,
   family celebrations), including at home; orchestral work. Don't invent prices, addresses, opening hours, qualifications, venues, reviews or student names. Ask her.
 - No phone number. Contact is the form plus `ayaviolin@gmail.com`. Instagram: https://www.instagram.com/anastasiamusicians.
-- Her Google Business Profile, "Violin and Piano Lessons with Anastasia", is linked from the contact section, the footer and the JSON-LD `sameAs`, all using https://share.google/MnevY5DZPbySLRnZO (keep all three the same). Don't embed review widgets or copy reviews without her OK.
+- Her Google Business Profile, "Violin and Piano Lessons with Anastasia", is linked from the contact section, the footer and the JSON-LD `sameAs`, all using https://share.google/MnevY5DZPbySLRnZO (keep all three the same). Don't embed review widgets.
+- The **Reviews** section (`#reviews`) quotes her public Google reviews **word for word** (trimmed only with "…"), credited
+  as first name + initial. To change a quote, copy it exactly from Google. Don't write star ratings or review counts on the page
+  (they go stale), and don't add `aggregateRating`/`Review` JSON-LD: Google ignores self-serving review markup on a business's own site.
 - No photos or videos of students unless she confirms written parental consent.
 - When you add a fact or photo, add its source to the Sources table in `README.md`.
 - She plays viola as well as violin (confirmed), so performing on viola can be mentioned. Not confirmed, so don't claim: viola lessons,
-  online lessons, adult students specifically, prices, availability. (Teaching children is confirmed.)
+  online lessons, prices, availability. (Teaching children and adults is confirmed; adults by her Google reviews.)
 
 ## Search and AI answers
 - The visible page is the source of truth; the JSON-LD `Person` block in `index.html` restates the same facts (job title, description, url,

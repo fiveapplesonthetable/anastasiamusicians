@@ -47,6 +47,7 @@ Everything can be done on github.com in the browser. Each saved change ("commit"
 | Orchestral | `class="orchestral` |
 | Common questions | `id="faq"` |
 | Contact form | `id="contact"` |
+| Reviews (quotes from Google) | `id="reviews"` |
 | Bottom line (email, Instagram, Google reviews) | `<footer>` |
 
 ### Change or add a photo
@@ -66,6 +67,10 @@ Everything can be done on github.com in the browser. Each saved change ("commit"
 ### Add a video
 Upload it to YouTube, click **Share → Embed**, and paste the code into `site/index.html` where it should appear.
 Video files uploaded to the site itself make it slow.
+
+### Change a review quote
+In `site/index.html`, find `id="reviews"`. Each quote sits between `<blockquote>` and `</blockquote>`, with the name underneath.
+Copy the new quote exactly from Google (shorten it only with "…"), and write the name as first name plus initial, such as `Claire M.`.
 
 ### Colours and fonts
 At the top of `site/styles.css`. For example, `--olive: #556036;` is the green used for buttons.
@@ -200,6 +205,7 @@ All facts and photos come from Anastasia's own published material, or were confi
 | Lessons offered: violin and piano | Her original site ("Violin and Piano Lessons with Anastasia") |
 | Private events, including at home; graded exams; teaching children; plays viola; the list of occasions | Confirmed with Anastasia |
 | Google Business Profile ("Violin and Piano Lessons with Anastasia") | Her own Google review link |
+| Review quotes; teaching adults | Her public Google reviews (5.0 stars, 11 reviews, October 2026) |
 | Teaching in Hackney and Islington | Her Nextdoor business page, "Violin and Piano Lessons in Hackney and Islington" |
 | `images/portrait.jpg` | Her original site |
 | `images/sofa-portrait.jpg`, `images/at-home.jpg`, `images/orchestra.jpg` | Her Instagram, [@anastasiamusicians](https://www.instagram.com/anastasiamusicians) |

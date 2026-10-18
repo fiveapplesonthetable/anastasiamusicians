@@ -80,6 +80,11 @@ figure img { width: 100%; height: 100%; object-fit: cover; }
 .facts span { font-size: 14px; color: var(--muted); line-height: 1.5; display: block; }
 
 /* Private events */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.quotes figure { margin: 0; padding-top: 24px; border-top: 2px solid var(--olive); }
+.quotes blockquote { margin: 0 0 16px; font: italic 400 22px/1.45 var(--serif); }
+.quotes figcaption { font-size: 14px; color: var(--muted); }
+
 .events { background: var(--paper-2); }
 .events .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .events figure { aspect-ratio: 16/10; }
@@ -139,5 +144,5 @@ footer a:hover { color: #fff; }
   .about figure img { object-position: center 20%; }
   .cards, .notes { grid-template-columns: 1fr; }
   .facts { grid-template-columns: 1fr; gap: 20px; }
-  .occasions, .row, .qa { grid-template-columns: 1fr; }
+  .occasions, .row, .qa, .quotes { grid-template-columns: 1fr; }
 }
