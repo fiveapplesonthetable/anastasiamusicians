@@ -99,17 +99,32 @@ accounts, two secrets and one key.
    - **Account ID:** on the **Workers & Pages** page, it's shown on the right.
    - **Free the site address:** delete the old `anastasiamusicians` Pages project in the current Cloudflare
      account, so that `anastasiamusicians.pages.dev` becomes available for her account.
-3. **GitHub secrets:** in her repo, go to **Settings → Secrets and variables → Actions → New repository secret**.
-   Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, and delete any old secrets (`VERCEL_*` and the
-   previous `CLOUDFLARE_*`).
+3. **GitHub secrets:** in her repo, go to **Settings** (top of the repo) **→ Secrets and variables → Actions**.
+   - Click **New repository secret**, name it `CLOUDFLARE_API_TOKEN`, paste the token and click **Add secret**.
+   - Do the same for `CLOUDFLARE_ACCOUNT_ID`, with the Account ID.
+   - Delete any old secrets left over from before: `VERCEL_*` and the previous `CLOUDFLARE_*`.
+     (Adding a secret with the same name replaces the old one.)
 4. **Web3Forms key (contact form):** on web3forms.com, she enters **ayaviolin@gmail.com** to get a free access key
    by email. She pastes it into `WEB3FORMS_ACCESS_KEY` at the top of `main.js` and clicks **Commit changes**.
-5. **Publish and check:** that commit publishes the site. The Cloudflare project is created automatically
-   on the first run, which can be followed on the **Actions** tab. Then she opens
-   https://anastasiamusicians.pages.dev and sends herself a test message.
+5. **Publish and check:** that commit publishes the site. On the **Actions** tab, the **Deploy** run shows
+   each step going green. On the first run in a new Cloudflare account, the
+   **"Create the Pages project on first run"** step creates the project, and later runs skip it.
+   Then she opens https://anastasiamusicians.pages.dev and sends herself a test message.
+   - **Name taken?** If `anastasiamusicians` isn't available, pick another name. Go to **Settings → Secrets and
+     variables → Actions → Variables → New repository variable**, name it `PAGES_PROJECT` and enter the
+     new name. The site is then at `<that name>.pages.dev`.
+   - **Trying it out without changing anything:** on the **Actions** tab, open **Deploy → Run workflow**,
+     enter a test name such as `my-test-123` and run it. This publishes a copy at `my-test-123.pages.dev`,
+     which can be deleted afterwards in Cloudflare under **Workers & Pages**.
 
 That's it. Vercel isn't needed. Each host only publishes if its secrets are present, so with only the
 Cloudflare secrets set, the Vercel step quietly skips.
+
+**Option B, no token at all (not tested yet):** instead of steps 2–3, in Cloudflare go to **Workers & Pages →
+Create → Pages → Connect to Git**, sign in to GitHub and choose this repo. Use these settings: framework
+**None**, build command `mkdir -p _site && cp -r index.html styles.css main.js favicon.svg images _site/`,
+and output directory `_site`. If new top-level files are added later, add them to that command. Cloudflare then
+publishes every change by itself. Leave the `CLOUDFLARE_*` secrets unset, so the Action skips its Cloudflare step.
 
 ---
 
