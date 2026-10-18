@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Violin, Viola &amp; Piano Lessons with Anastasia — London</title>
+<meta name="description" content="Violin, viola and piano lessons in London for children and adults, and live music for private events, with Russian-British violist Anastasia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f2ea;
+    --paper-2: #ece7db;
+    --ink: #1e1e1b;
+    --muted: #66655d;
+    --line: #d9d3c4;
+    --olive: #556036;
+    --olive-dark: #3f4828;
+    --sage: #a9b383;
+    --charcoal: #262622;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 68px; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 10; background: rgba(245,242,234,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .mark { font: 500 22px/1 var(--serif); letter-spacing: .02em; text-decoration: none; }
+  nav { display: flex; gap: 28px; }
+  nav a { font-size: 14px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--ink); }
+  .mobile-cta { display: none; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--olive); text-decoration: none; }
+
+  /* Type */
+  .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); margin: 0 0 18px; }
+  h1, h2 { font-family: var(--serif); font-weight: 400; line-height: 1.08; margin: 0; }
+  h1 { font-size: clamp(44px, 6.4vw, 78px); }
+  h2 { font-size: clamp(34px, 4.4vw, 52px); margin-bottom: 26px; }
+  h3 { font: 500 26px/1.2 var(--serif); margin: 0 0 10px; }
+  p { margin: 0 0 18px; }
+  .lead { font-size: 19px; color: var(--muted); max-width: 34em; }
+
+  /* Buttons */
+  .btn { display: inline-block; padding: 14px 22px; border: 1px solid var(--olive); background: var(--olive); color: #fff; text-decoration: none; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; font-family: var(--sans); transition: background .2s, color .2s; }
+  .btn:hover { background: var(--olive-dark); border-color: var(--olive-dark); }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: #fff; }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+
+  section { padding: 104px 0; }
+  .rule { border-top: 1px solid var(--line); }
+  figure { margin: 0; }
+  figure img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Hero */
+  .hero { padding: 72px 0 96px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 64px; align-items: center; }
+  .hero h1 { margin-bottom: 26px; }
+  .hero figure { aspect-ratio: 4/5; overflow: hidden; }
+  .hero figure img { object-position: center 30%; }
+
+  /* Lessons */
+  .lessons { background: var(--paper-2); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .card { background: var(--paper); padding: 36px 32px; }
+  .card p { color: var(--muted); margin: 0; font-size: 16px; }
+  .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+  .notes h4 { font: 500 13px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; margin: 0 0 12px; color: var(--olive); }
+  .notes p { font-size: 16px; color: var(--muted); }
+
+  /* About */
+  .about .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: start; }
+  .about figure { aspect-ratio: 360/455; max-width: 400px; }
+  .facts { list-style: none; margin: 36px 0 0; padding: 28px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border-top: 1px solid var(--line); }
+  .facts strong { display: block; font: 400 36px/1 var(--serif); color: var(--olive); margin-bottom: 8px; }
+  .facts span { font-size: 14px; color: var(--muted); line-height: 1.5; display: block; }
+
+  /* Private events */
+  .events { background: var(--paper-2); }
+  .events .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .events figure { aspect-ratio: 16/10; }
+  .occasions { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .occasions li { padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+
+  /* Orchestral */
+  .orchestral .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 64px; align-items: center; }
+  .orchestral figure { aspect-ratio: 4/3; }
+  .orchestral figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+  /* Contact */
+  .contact { background: var(--charcoal); color: #eeeae0; }
+  .contact .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; }
+  .contact .eyebrow { color: var(--sage); }
+  .contact .lead { color: #b9b5aa; }
+  .contact-email { margin-top: 36px; font-size: 15px; color: #b9b5aa; }
+  .contact-email a { display: inline-block; margin-top: 6px; font: 400 26px/1.2 var(--serif); color: #fff; text-decoration: none; border-bottom: 1px solid #6d6a60; }
+  .contact-email a:hover { border-color: #fff; }
+  form { display: grid; gap: 22px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  label { display: block; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #b9b5aa; margin-bottom: 8px; }
+  input, select, textarea { width: 100%; padding: 14px 16px; font: 400 16px/1.4 var(--sans); color: #fff; background: #31312c; border: 1px solid #4a4943; border-radius: 0; appearance: none; }
+  select { background-image: linear-gradient(45deg, transparent 50%, #b9b5aa 50%), linear-gradient(135deg, #b9b5aa 50%, transparent 50%); background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
+  textarea { min-height: 150px; resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--sage); }
+  .contact .btn { justify-self: start; background: var(--sage); border-color: var(--sage); color: var(--charcoal); }
+  .contact .btn:hover { background: #fff; border-color: #fff; }
+  .form-status { min-height: 1.5em; margin: 0; font-size: 15px; }
+  .form-status.ok { color: #c4cd9d; }
+  .form-status.err { color: #e8a598; }
+  .hp { position: absolute; left: -9999px; }
+
+  footer { background: var(--charcoal); color: #8d8a80; font-size: 14px; border-top: 1px solid #3a3a35; }
+  footer .wrap { display: flex; justify-content: space-between; padding-top: 28px; padding-bottom: 28px; gap: 16px; flex-wrap: wrap; }
+  footer .links { display: flex; gap: 24px; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: #fff; }
+
+  /* Mobile */
+  @media (max-width: 860px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    nav { display: none; }
+    .mobile-cta { display: inline-block; }
+    section { padding: 72px 0; }
+    .hero { padding: 32px 0 64px; }
+    .hero .wrap, .about .wrap, .events .wrap, .orchestral .wrap, .contact .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .hero figure { order: -1; aspect-ratio: 4/4.4; }
+    .about figure { max-width: none; aspect-ratio: 4/4.4; }
+    .about figure img { object-position: center 20%; }
+    .cards, .notes { grid-template-columns: 1fr; }
+    .facts { grid-template-columns: 1fr; gap: 20px; }
+    .occasions, .row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="mark" href="#top">Anastasia</a>
+    <nav>
+      <a href="#lessons">Lessons</a>
+      <a href="#about">About</a>
+      <a href="#events">Private events</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="mobile-cta" href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Violin · Viola · Piano</p>
+        <h1>Music lessons for children and adults in London</h1>
+        <p class="lead">Patient, personal teaching from Anastasia, a Russian-British violist with sixteen years of experience, from a child’s very first notes to exams and music scholarships.</p>
+        <div class="actions">
+          <a class="btn" href="#contact" data-topic="Lessons for a child">Enquire about lessons</a>
+          <a class="btn ghost" href="#events">Music for private events</a>
+        </div>
+      </div>
+      <figure>
+        <img src="images/portrait.jpg" alt="Anastasia holding her violin" width="841" height="1269">
+      </figure>
+    </div>
+  </section>
+
+  <section id="lessons" class="lessons">
+    <div class="wrap">
+      <p class="eyebrow">Lessons</p>
+      <h2>Every student is different, so every lesson is too.</h2>
+      <p class="lead">Lessons are shaped around each pupil’s age, goals and pace, so children and adults alike progress with confidence and enjoy playing.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Violin</h3>
+          <p>From a young beginner’s first lesson to advanced repertoire: good habits, a beautiful sound and a love of playing.</p>
+        </div>
+        <div class="card">
+          <h3>Viola</h3>
+          <p>Taught by a professional violist. Ideal for new violists and for violinists making the switch.</p>
+        </div>
+        <div class="card">
+          <h3>Piano</h3>
+          <p>A strong foundation in reading, technique and musicianship, for beginners and returning players.</p>
+        </div>
+      </div>
+      <div class="notes">
+        <div>
+          <h4>Exams &amp; scholarships</h4>
+          <p>Anastasia’s students consistently achieve top results in graded exams, and many go on to win music scholarships.</p>
+        </div>
+        <div>
+          <h4>Where</h4>
+          <p>In person in Hackney and Islington, North London.</p>
+        </div>
+        <div>
+          <h4>Getting started</h4>
+          <p>Send a short message about the student and what you’d like to achieve. Anastasia will reply with availability and fees.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <figure>
+        <img src="images/sofa-portrait.jpg" alt="Anastasia seated with her violin at home" width="360" height="455" loading="lazy">
+      </figure>
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Teacher and performer.</h2>
+        <p>Anastasia has taught students of every age and level for more than sixteen years. She holds a Master’s degree in Violin and Viola Performance, having studied at leading universities in both the UK and Russia.</p>
+        <p>Alongside teaching, she performs with orchestras in London and Oxford. That life on stage shapes her lessons: students learn not only the notes, but how to play with confidence and joy.</p>
+        <ul class="facts">
+          <li><strong>16+</strong><span>years teaching children and adults</span></li>
+          <li><strong>Master’s</strong><span>in Violin &amp; Viola Performance, UK and Russia</span></li>
+          <li><strong>London</strong><span>and Oxford orchestras, including the BBC Proms</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="events">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Private events</p>
+        <h2>Live music, at home.</h2>
+        <p class="lead">Elegant solo violin or viola, or a duo with piano, for intimate occasions in your home or a private venue.</p>
+        <ul class="occasions">
+          <li>House concerts</li>
+          <li>Birthdays &amp; anniversaries</li>
+          <li>Dinner parties</li>
+          <li>Family celebrations</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="#contact" data-topic="Private event">Ask about your date</a>
+        </div>
+      </div>
+      <figure>
+        <img src="images/at-home.jpg" alt="Anastasia playing the violin at home" width="640" height="360" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <section class="orchestral rule">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Orchestral</p>
+        <h2>On stage in London and Oxford.</h2>
+        <p class="lead">Anastasia plays viola and violin with orchestras across London and Oxford, including appearances at the BBC Proms, and is happy to hear about orchestral and chamber work.</p>
+      </div>
+      <figure>
+        <img src="images/orchestra.jpg" alt="Anastasia with fellow orchestral musicians backstage" width="640" height="481" loading="lazy">
+        <figcaption>Backstage with colleagues</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Get in touch.</h2>
+        <p class="lead">Whether it’s lessons for your child, lessons for yourself or music for a special occasion, send a message and Anastasia will get back to you.</p>
+        <p class="contact-email">Or email directly<br><a href="mailto:ayaviolin@gmail.com">ayaviolin@gmail.com</a></p>
+      </div>
+
+      <form id="contact-form" novalidate>
+        <div class="row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div>
+          <label for="topic">I’m enquiring about</label>
+          <select id="topic" name="topic">
+            <option>Lessons for a child</option>
+            <option>Lessons for an adult</option>
+            <option>Private event</option>
+            <option>Orchestral or other work</option>
+          </select>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="For lessons: the student’s age, instrument and level. For events: the date, place and occasion."></textarea>
+        </div>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Anastasia</span>
+    <span class="links">
+      <a href="mailto:ayaviolin@gmail.com">ayaviolin@gmail.com</a>
+      <a href="https://www.instagram.com/anastasiamusicians" target="_blank" rel="noopener">Instagram</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  // Enquiries are forwarded by FormSubmit (formsubmit.co) to this address.
+  // FormSubmit asks the address to confirm once per site address before it forwards anything.
+  const FORM_EMAIL = "fiveapplesonthetable@gmail.com";
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Buttons like "Ask about your date" preselect the matching enquiry type.
+  document.querySelectorAll("a[data-topic]").forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("topic").value = link.dataset.topic;
+    });
+  });
+
+  const form = document.getElementById("contact-form");
+  const status = form.querySelector(".form-status");
+  const button = form.querySelector("button");
+
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    status.className = "form-status";
+    if (!form.checkValidity()) {
+      status.textContent = "Please add your name, a valid email and a message.";
+      status.classList.add("err");
+      return;
+    }
+    button.disabled = true;
+    button.textContent = "Sending…";
+    try {
+      const data = Object.fromEntries(new FormData(form));
+      const response = await fetch(`https://formsubmit.co/ajax/${FORM_EMAIL}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          ...data,
+          _subject: `Website enquiry: ${data.topic} from ${data.name}`,
+          _template: "table",
+        }),
+      });
+      const result = await response.json();
+      if (String(result.success) !== "true") throw new Error(result.message);
+      form.reset();
+      status.textContent = "Thank you, your message has been sent. Anastasia will be in touch soon.";
+      status.classList.add("ok");
+    } catch {
+      status.textContent = "Sorry, something went wrong. Please email ayaviolin@gmail.com directly.";
+      status.classList.add("err");
+    } finally {
+      button.disabled = false;
+      button.textContent = "Send message";
+    }
+  });
+</script>
+</body>
+</html>
