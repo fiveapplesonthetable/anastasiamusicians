@@ -83,6 +83,36 @@ to the inbox linked to the site's access key. The email subject looks like
 
 ---
 
+## Handing the site over to Anastasia
+
+The site is set up so that she can own everything, for free, in about 20 minutes. It needs three free
+accounts, two secrets and one key.
+
+1. **GitHub account:** she signs up at github.com. Then move this repo to her: in this repo, go to
+   **Settings → General → Danger Zone → Transfer ownership** and enter her username.
+   Transferring is better than forking: it keeps the history, and the automatic publishing just works.
+   If she forks it instead, she has to switch on the **Actions** tab in her fork once.
+2. **Cloudflare account (hosting):** she signs up at dash.cloudflare.com.
+   - **Create the token:** go to **My Profile → API Tokens → Create Token**, find the **"Edit Cloudflare Workers"**
+     template and click **Use template**. Set **Account Resources** to her account and **Zone Resources** to
+     **All zones**, then click **Continue to summary → Create Token**. Copy the token, which is shown only once.
+   - **Account ID:** on the **Workers & Pages** page, it's shown on the right.
+   - **Free the site address:** delete the old `anastasiamusicians` Pages project in the current Cloudflare
+     account, so that `anastasiamusicians.pages.dev` becomes available for her account.
+3. **GitHub secrets:** in her repo, go to **Settings → Secrets and variables → Actions → New repository secret**.
+   Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, and delete any old secrets (`VERCEL_*` and the
+   previous `CLOUDFLARE_*`).
+4. **Web3Forms key (contact form):** on web3forms.com, she enters **ayaviolin@gmail.com** to get a free access key
+   by email. She pastes it into `WEB3FORMS_ACCESS_KEY` at the top of `main.js` and clicks **Commit changes**.
+5. **Publish and check:** that commit publishes the site. The Cloudflare project is created automatically
+   on the first run, which can be followed on the **Actions** tab. Then she opens
+   https://anastasiamusicians.pages.dev and sends herself a test message.
+
+That's it. Vercel isn't needed. Each host only publishes if its secrets are present, so with only the
+Cloudflare secrets set, the Vercel step quietly skips.
+
+---
+
 ## Hosting
 
 The site is published to **Cloudflare Pages** (free, project `anastasiamusicians`). During the changeover it
@@ -109,26 +139,11 @@ GitHub repository secrets** under **Settings → Secrets and variables → Actio
   *this* repo can publish to her site.
 - If a token is ever leaked, delete it in Cloudflare (or Vercel), create a new one and update the secret.
 
-### Setting up Cloudflare from scratch (for example, under her own account)
-1. Create a free account at **dash.cloudflare.com**.
-2. **Create the deploy token:** go to **My Profile → API Tokens → Create Token** and choose the
-   **"Edit Cloudflare Workers"** template (**Use template**). Set **Account Resources** to her account and
-   **Zone Resources** to **All zones**, then click **Continue to summary → Create Token**. Copy the token,
-   which is shown only once.
-3. **Find the Account ID:** on the dashboard's **Workers & Pages** page, it's shown on the right.
-4. **Create the Pages project:** go to **Workers & Pages → Create → Pages**. Choose
-   **Direct Upload**, name it `anastasiamusicians` and upload any file (the first automatic deploy replaces it).
-5. **Save the secrets in GitHub:** go to **Settings → Secrets and variables → Actions → New repository secret**,
-   and add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
-6. **Deploy:** on the GitHub **Actions** tab, open **Deploy → Run workflow**, or push any change.
-
-Free tiers: GitHub Actions minutes are unlimited for public repos, and Cloudflare Pages is free for a
-site like this.
-
 ### Retiring Vercel (once happy with Cloudflare)
-1. Delete the `vercel:` job from `.github/workflows/deploy.yml`, and delete the `.vercelignore` file.
-2. Delete the three `VERCEL_*` secrets in GitHub.
-3. In Vercel, open the `anastasiamusicians` project and go to **Settings → Advanced → Delete Project**.
+1. Delete the three `VERCEL_*` secrets in GitHub. The Vercel step then skips itself automatically.
+2. In Vercel, open the `anastasiamusicians` project and go to **Settings → Advanced → Delete Project**.
+3. Optionally, tidy up by deleting the `vercel:` job in `.github/workflows/deploy.yml` and the `.vercelignore` file.
+
 Vercel's free plan doesn't allow commercial sites (including ones advertising paid lessons), which is
 the main reason for moving.
 
