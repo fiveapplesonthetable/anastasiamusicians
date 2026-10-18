@@ -26,6 +26,9 @@ Explain things simply, make small safe changes, and show her what changed. `READ
   a Master's in Violin and Viola Performance from universities in the UK and Russia; performs with leading orchestras in London and Oxford;
   teaches in person in Hackney and Islington; violin and piano lessons; private events (house concerts, birthdays and anniversaries, dinner parties,
   family celebrations), including at home; orchestral work. Don't invent prices, addresses, opening hours, qualifications, venues, reviews or student names. Ask her.
+- **Voice:** keep her own sentences from her original site as she wrote them (bio, teaching approach, credentials: third person,
+  "Anastasia has…"). Lines that speak to the visitor (intro, calls to action, FAQ answers, contact, form messages) are first
+  person ("I'll get back to you"). Reuse her own phrases where possible, e.g. "Get in touch", "Start your musical journey".
 - No phone number. Contact is the form plus `ayaviolin@gmail.com`. Instagram: https://www.instagram.com/anastasiamusicians.
 - Her Google Business Profile, "Violin and Piano Lessons with Anastasia", is linked from the contact section, the footer and the JSON-LD `sameAs`, all using https://share.google/MnevY5DZPbySLRnZO (keep all three the same). Don't embed review widgets.
 - The **Reviews** section (`#reviews`) quotes her public Google reviews **word for word** (trimmed only with "…"), credited

@@ -41,7 +41,7 @@ form.addEventListener("submit", async event => {
     const result = await response.json();
     if (!result.success) throw new Error(result.message);
     form.reset();
-    status.textContent = "Thank you, your message has been sent. Anastasia will be in touch soon.";
+    status.textContent = "Thank you, your message has been sent. I’ll be in touch soon.";
     status.classList.add("ok");
   } catch {
     status.textContent = "Sorry, something went wrong. Please email ayaviolin@gmail.com directly.";
