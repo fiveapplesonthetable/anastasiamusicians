@@ -160,19 +160,14 @@ of facts in the form Google and AI assistants read. For a local teacher, what ma
 ### 1. Google Business Profile (free, about 15 minutes)
 This is what appears on Google Maps and in "violin teacher near me" searches, and what AI assistants quote for local recommendations.
 
-**You already have one**, called *Violin and Piano Lessons with Anastasia*. Go to business.google.com, open it and check each item below. The most important thing is to change
-the **Website** to `https://anastasiamusicians.pages.dev`, because it probably still points to the old Squarespace site. Then
-update the description, categories and photos.
-
-**New profile:**
-1. Go to business.google.com and sign in with a Google account.
-2. Business name: `Violin and Piano Lessons with Anastasia`.
-3. Category: type **Music instructor** and choose it. Then add **Piano instructor** as a second category, and if typing "violin" offers a violin category, add that too.
-4. When asked for an address, say you **don't** have a shop customers visit and that you serve customers at their location, then add the service areas **Hackney** and **Islington**.
-5. Website: `https://anastasiamusicians.pages.dev`. Email: ayaviolin@gmail.com. Leave the phone number empty.
-6. Description, copy and paste:
+You already have one, *Violin and Piano Lessons with Anastasia*. Go to business.google.com, open it and check each item:
+1. **Website:** `https://anastasiamusicians.pages.dev`. This is the most important one, as it probably still points to the old Squarespace site.
+2. **Categories:** **Music instructor** first, then add **Piano instructor**, and if typing "violin" offers a violin category, add that too.
+3. **Address:** no shop address; you serve customers at their location. Service areas **Hackney** and **Islington**.
+4. **Contact:** email ayaviolin@gmail.com. Leave the phone number empty.
+5. **Description**, copy and paste:
    > Violin and piano lessons for all levels in Hackney and Islington, North London, with Anastasia. Over sixteen years of teaching experience, from a beginner's first notes to top graded-exam results and music scholarships. Every lesson is tailored to the student. Anastasia holds a Master's degree in Violin and Viola Performance from universities in the UK and Russia and performs with leading orchestras in London and Oxford. Also available to play live violin at private events, including in your home. Get in touch through the website or by email.
-7. Add the photos from `site/images/` and complete the verification Google asks for (a video or a postcard).
+6. **Photos:** add the ones from `site/images/`.
 
 ### 2. Ask for Google reviews
 Reviews are the strongest signal for Google and for AI answers. In your Business Profile, find **Ask for reviews** and copy the link, then send this to a few parents or students:

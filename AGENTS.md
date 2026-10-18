@@ -16,7 +16,7 @@ Explain things simply, make small safe changes, and show her what changed. `READ
 | `site/styles.css` | Design tokens in `:root`, layout, mobile styles under `@media (max-width: 860px)` |
 | `site/main.js` | Contact form: posts JSON to `https://api.web3forms.com/submit` |
 | `site/images/` | Photos (sources listed in `README.md`) |
-| `site/fonts/` | Cormorant Garamond and Inter as variable woff2 (weights 400–500, latin), self-hosted so nothing waits on Google; OFL licences alongside |
+| `site/fonts/` | Cormorant Garamond (roman and italic) and Inter as variable woff2 (weights 400–500, latin), self-hosted so nothing waits on Google; OFL licences alongside |
 | `site/favicon.svg`, `site/robots.txt`, `site/sitemap.xml` | Icon and search-engine files |
 | `.github/workflows/deploy.yml` | Publishing. `.github/copilot-instructions.md` points GitHub Copilot at this file |
 
@@ -52,7 +52,8 @@ Explain things simply, make small safe changes, and show her what changed. `READ
   (prevents layout shift). Only the hero loads eagerly (`fetchpriority="high"`); everything below the fold uses `loading="lazy"`.
   No `srcset`/`<picture>`/WebP variants: they would mean several files per photo, which breaks her upload-one-file workflow, and the gain is small at these sizes.
   The hero is pre-cropped to the 4:5 box the CSS displays, so no bytes are spent on pixels that are cropped away.
-- Fonts: served from `site/fonts/` with `@font-face` in `styles.css` (`font-display: swap`). Don't add Google Fonts `<link>`s back, and don't add weights or families.
+- Fonts: served from `site/fonts/` with `@font-face` in `styles.css` (`font-display: swap`). Don't add Google Fonts `<link>`s back, and don't add weights or families. The italic face exists only for the review quotes; a style
+  that needs a face that isn't there gets a synthesised (faux) one, so check `document.fonts` if you add italics or bold anywhere.
 - Relative paths only (`images/…`, `styles.css`), so the page also works opened as a local file.
 - Prefer YouTube embeds to hosted video.
 

@@ -1,5 +1,6 @@
 /* Fonts are served from this site (fonts/), so the page doesn't wait on Google. Licences in fonts/LICENSE.txt. */
 @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 400 500; font-display: swap; src: url("fonts/cormorant-garamond.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 400; font-display: swap; src: url("fonts/cormorant-garamond-italic.woff2") format("woff2"); }
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 400 500; font-display: swap; src: url("fonts/inter.woff2") format("woff2"); }
 
 :root {
@@ -79,12 +80,13 @@ figure img { width: 100%; height: 100%; object-fit: cover; }
 .facts strong { display: block; font: 400 36px/1 var(--serif); color: var(--olive); margin-bottom: 8px; }
 .facts span { font-size: 14px; color: var(--muted); line-height: 1.5; display: block; }
 
-/* Private events */
+/* Reviews */
 .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .quotes figure { margin: 0; padding-top: 24px; border-top: 2px solid var(--olive); }
 .quotes blockquote { margin: 0 0 16px; font: italic 400 22px/1.45 var(--serif); }
 .quotes figcaption { font-size: 14px; color: var(--muted); }
 
+/* Private events */
 .events { background: var(--paper-2); }
 .events .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .events figure { aspect-ratio: 16/10; }
