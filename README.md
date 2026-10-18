@@ -154,6 +154,12 @@ of facts in the form Google and AI assistants read. For a local teacher, what ma
 
 ### 1. Google Business Profile (free, about 15 minutes)
 This is what appears on Google Maps and in "violin teacher near me" searches, and what AI assistants quote for local recommendations.
+
+**Already have one?** Go to business.google.com, open it and check each item below. The most important thing is to change
+the **Website** to `https://anastasiamusicians.pages.dev`, because it probably still points to the old Squarespace site. Then
+update the description, categories and photos.
+
+**New profile:**
 1. Go to business.google.com and sign in with a Google account.
 2. Business name: `Violin and Piano Lessons with Anastasia`.
 3. Category: type **Music instructor** and choose it. Then add **Piano instructor** as a second category, and if typing "violin" offers a violin category, add that too.
