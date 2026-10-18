@@ -1,10 +1,11 @@
 # Anastasia — violin and piano lessons website
 
-**Live site:** https://anastasiamusicians.vercel.app
+**Live site:** https://anastasiamusicians.pages.dev (Cloudflare Pages)
+**Also live, temporarily:** https://anastasiamusicians.vercel.app (Vercel, to be retired; see [Hosting](#hosting))
 **Old site (Squarespace):** https://www.anastasiamusicians.uk. This site replaces it.
 
 A simple, one-page website: lessons, about, private events, orchestral work and a contact form.
-There is no database, no visitor login and nothing to install. It is hosted free on Vercel.
+There is no database, no visitor login and nothing to install. Hosting is free on Cloudflare Pages.
 
 ```
 index.html        all the words and the page layout
@@ -70,8 +71,11 @@ to the inbox linked to the site's access key. The email subject looks like
 `Website enquiry: Lessons from Jane Smith`. Pressing **Reply** answers the person who wrote.
 
 - **Free plan:** this covers a small teaching site's enquiries comfortably. See web3forms.com for current limits and paid plans.
-- **The access key** is `WEB3FORMS_ACCESS_KEY` at the top of `main.js`. It is designed to be public,
-  so it is fine on a public website and repo.
+- **The access key** is `WEB3FORMS_ACCESS_KEY` at the top of `main.js`. It is **meant to be public**.
+  The form runs in the visitor's browser, so every visitor's browser has to see the key. Hiding it in a
+  private repo wouldn't help. The key only allows *sending* a message to her inbox: nobody can read past
+  enquiries, change settings or learn her email address with it. The worst misuse is spam, which the
+  hidden spam trap in the form helps to block.
 - **To change where messages go:** log in to web3forms.com and change the email for this key,
   or create a new key for the new address and paste it into `main.js`.
 - **Messages not arriving?** Check the Gmail **Spam** and **Promotions** tabs.
@@ -79,38 +83,85 @@ to the inbox linked to the site's access key. The email subject looks like
 
 ---
 
-## Moving the domain (anastasiamusicians.uk) to this site
+## Hosting
 
-The domain currently points at the old Squarespace site. Pointing it here takes a few minutes of work,
-plus up to a day for the change to spread. Transferring the domain away from Squarespace is not required.
+The site is published to **Cloudflare Pages** (free, project `anastasiamusicians`). During the changeover it
+is also published to **Vercel**. Every change pushed to `main` goes to both automatically, through
+`.github/workflows/deploy.yml`. The two hosts deploy independently, so if one fails the other still updates.
 
-1. **Vercel:** open the `anastasiamusicians` project, go to **Settings → Domains → Add**, and add both
-   `anastasiamusicians.uk` and `www.anastasiamusicians.uk`. Vercel then shows the DNS records to create,
-   usually an **A record** for `@` and a **CNAME** for `www`. Use exactly the values Vercel shows.
-2. **Squarespace:** go to **Settings → Domains → anastasiamusicians.uk → DNS settings**. Delete the
-   Squarespace default records for `@` and `www`, then add the records from step 1.
-3. Wait until Vercel shows both domains as **Valid** (usually within an hour, at most about 48 hours).
-4. In `index.html`, change the two `https://anastasiamusicians.vercel.app` addresses in the
-   `og:url` and `og:image` lines to `https://anastasiamusicians.uk`. These control link previews in WhatsApp and similar apps.
-5. Send one test message from the form at the new address to check it arrives.
-6. Cancel the Squarespace **website** plan. Keep the **domain** subscription, which is billed separately,
-   unless you transfer the domain.
+### Do we need a domain?
+No. **anastasiamusicians.pages.dev** works on its own, for free, forever. A custom domain such as
+`anastasiamusicians.uk` just looks a little more professional and costs about £5–10 a year. It's her choice.
 
-**Optional, to stop paying Squarespace for the domain:** transfer it to a cheaper registrar such as
-Cloudflare, Porkbun or Namecheap. For `.uk` domains, the new registrar gives you an **IPS tag**,
-and Squarespace changes the domain to that tag (see Squarespace's help page on transferring a
-`.uk` domain away). Then repeat step 2 at the new registrar.
+### How the deploy tokens are kept secret
+Publishing needs a Cloudflare token (and, for now, a Vercel token). These are stored as **encrypted
+GitHub repository secrets** under **Settings → Secrets and variables → Actions**:
+
+| Secret | What it is |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare token allowed to deploy Pages and Workers |
+| `CLOUDFLARE_ACCOUNT_ID` | The Cloudflare account the project lives in |
+| `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID` | Vercel deploy access (remove when Vercel is retired) |
+
+- Nobody can view a secret after it is saved, not even the repo owner. It can only be replaced.
+- GitHub hides secrets in the Action logs.
+- **Forks never get the secrets.** Anyone can copy this public repo, but only people with write access to
+  *this* repo can publish to her site.
+- If a token is ever leaked, delete it in Cloudflare (or Vercel), create a new one and update the secret.
+
+### Setting up Cloudflare from scratch (for example, under her own account)
+1. Create a free account at **dash.cloudflare.com**.
+2. **Create the deploy token:** go to **My Profile → API Tokens → Create Token** and choose the
+   **"Edit Cloudflare Workers"** template (**Use template**). Set **Account Resources** to her account and
+   **Zone Resources** to **All zones**, then click **Continue to summary → Create Token**. Copy the token,
+   which is shown only once.
+3. **Find the Account ID:** on the dashboard's **Workers & Pages** page, it's shown on the right.
+4. **Create the Pages project:** go to **Workers & Pages → Create → Pages**. Choose
+   **Direct Upload**, name it `anastasiamusicians` and upload any file (the first automatic deploy replaces it).
+5. **Save the secrets in GitHub:** go to **Settings → Secrets and variables → Actions → New repository secret**,
+   and add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
+6. **Deploy:** on the GitHub **Actions** tab, open **Deploy → Run workflow**, or push any change.
+
+Free tiers: GitHub Actions minutes are unlimited for public repos, and Cloudflare Pages is free for a
+site like this.
+
+### Retiring Vercel (once happy with Cloudflare)
+1. Delete the `vercel:` job from `.github/workflows/deploy.yml`, and delete the `.vercelignore` file.
+2. Delete the three `VERCEL_*` secrets in GitHub.
+3. In Vercel, open the `anastasiamusicians` project and go to **Settings → Advanced → Delete Project**.
+Vercel's free plan doesn't allow commercial sites (including ones advertising paid lessons), which is
+the main reason for moving.
+
+### Using her own domain (anastasiamusicians.uk), optional
+The domain currently points at the old Squarespace site.
+
+- **Recommended, `www` plus a redirect:**
+  1. In Cloudflare, go to **Workers & Pages → anastasiamusicians → Custom domains → Set up a custom domain**,
+     enter `www.anastasiamusicians.uk` and follow the steps. Cloudflare shows a **CNAME** record
+     pointing to `anastasiamusicians.pages.dev`.
+  2. In Squarespace, go to **Settings → Domains → anastasiamusicians.uk → DNS settings**. Remove the
+     Squarespace records for `www`, add that CNAME, and add a Squarespace domain forward from
+     `anastasiamusicians.uk` to `https://www.anastasiamusicians.uk`.
+- **Simplest long term:** move the domain itself to Cloudflare. Cloudflare sells domains at cost, so
+  domain, hosting and DNS all live in one free account, and the bare `anastasiamusicians.uk` works
+  directly. For a `.uk` domain, Cloudflare (or any new registrar) gives you an **IPS tag**, and Squarespace
+  switches the domain to that tag. See Squarespace's help page on transferring a `.uk` domain away.
+
+After either option:
+1. Change the two `https://anastasiamusicians.pages.dev` addresses in the `og:url` and `og:image` lines
+   of `index.html` to the new domain. These control link previews in WhatsApp and similar apps.
+2. Send a test message from the form.
+3. Cancel the Squarespace **website** plan. Keep the **domain** subscription until the domain has been transferred.
 
 ---
 
 ## For developers
 
 - Run it locally with `python3 -m http.server 8000`, then open http://localhost:8000.
-  The form only sends from activated web addresses, not from localhost.
-- Deploying: pushing to `main` runs `.github/workflows/deploy.yml`, which deploys to Vercel with the
-  `VERCEL_TOKEN`, `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` repository secrets.
-  To deploy by hand, run `vercel deploy --prod`.
-- There is no build step and there are no dependencies. Please keep it that way. See `AGENTS.md` for the content and design rules.
+- There is no build step and there are no dependencies. Please keep it that way.
+  See `AGENTS.md` for the content and design rules.
+- To deploy by hand, run `npx wrangler pages deploy <folder> --project-name=anastasiamusicians`.
+  Use a folder holding only the site files, as the workflow builds.
 
 ---
 

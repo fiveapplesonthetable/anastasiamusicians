@@ -5,7 +5,8 @@ Explain things simply, make small, safe changes and show her what changed.
 
 ## The site
 - A static, single page: `index.html` (content), `styles.css`, `main.js` (contact form) and `images/`. There is no build step, framework or package manager. Keep it that way.
-- It is hosted on Vercel, project `anastasiamusicians`. Pushing to `main` deploys automatically (`.github/workflows/deploy.yml`). To deploy by hand, run `vercel deploy --prod`.
+- It is hosted on Cloudflare Pages (`anastasiamusicians.pages.dev`) and, temporarily, on Vercel (`anastasiamusicians.vercel.app`). Pushing to `main` deploys to both automatically (`.github/workflows/deploy.yml`). Only the site files are published, not the `*.md` files or dotfiles. Deploy tokens live in encrypted GitHub secrets, so never put a token in a file. See README → Hosting.
+- The Web3Forms key in `main.js` is public by design. Don't try to hide it.
 - The contact form (`main.js`) posts JSON from the browser to `https://api.web3forms.com/submit` with the public `WEB3FORMS_ACCESS_KEY`. Web3Forms emails the message to the inbox linked to that key.
   - `replyto` is the visitor's email, and `subject` sets the subject line.
   - `botcheck` is a hidden spam-trap checkbox. Leave it in place.
