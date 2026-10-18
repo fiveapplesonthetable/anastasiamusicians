@@ -29,7 +29,7 @@ Explain things simply, make small safe changes, and show her what changed. `READ
 - No photos or videos of students unless she confirms written parental consent.
 - When you add a fact or photo, add its source to the Sources table in `README.md`.
 - Not confirmed, so don't claim: viola lessons (her Master's is in Violin and Viola Performance; that is the only honest viola mention),
-  online lessons, adult or child students specifically, prices, availability.
+  online lessons, adult students specifically, prices, availability. (Teaching children is confirmed.)
 
 ## Search and AI answers
 - The visible page is the source of truth; the JSON-LD `Person` block in `index.html` restates the same facts (job title, description, url,
