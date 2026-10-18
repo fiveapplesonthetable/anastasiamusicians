@@ -16,6 +16,7 @@ Explain things simply, make small, safe changes and show her what changed.
 ## Content rules (important)
 - **Use her first name only, "Anastasia".** Don't add her surname anywhere: copy, titles, alt text, metadata, project names or commit messages.
 - **Only state facts she has published or told you.** The bio wording comes from her original site: 16+ years teaching students at all levels; top exam results; music scholarships; a Master's in Violin and Viola Performance from universities in the UK and Russia; performing with leading orchestras in London and Oxford. Don't invent locations, prices, qualifications, venues, reviews or student names. If something is missing, ask her.
+- Also confirmed: graded-exam preparation, teaching in Hackney and Islington, and private events (house concerts, birthdays and anniversaries, dinner parties, family celebrations).
 - Lessons offered: **violin and piano**. Private events (including at home) and orchestral work are also offered.
 - Don't add a phone number. Contact is the form plus `ayaviolin@gmail.com` only.
 - Never publish photos or videos of students (children) unless she confirms written parental consent.
