@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Violin and Piano Lessons with Anastasia</title>
-<meta name="description" content="Violin and piano lessons for students of all ages and levels, and live music for private events, with Anastasia.">
+<meta name="description" content="Violin and piano lessons for students at all levels, and live violin for private events, with Anastasia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -36,6 +36,10 @@
   nav { display: flex; gap: 28px; }
   nav a { font-size: 14px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
   nav a:hover { color: var(--ink); }
+  .header-end { display: flex; align-items: center; gap: 28px; }
+  .ig { display: flex; color: var(--muted); }
+  .ig:hover { color: var(--ink); }
+  .ig svg { width: 20px; height: 20px; }
   .mobile-cta { display: none; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--olive); text-decoration: none; }
 
   /* Type */
@@ -86,8 +90,6 @@
   .events { background: var(--paper-2); }
   .events .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .events figure { aspect-ratio: 16/10; }
-  .occasions { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
-  .occasions li { padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
 
   /* Orchestral */
   .orchestral .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 64px; align-items: center; }
@@ -99,7 +101,7 @@
   .contact .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; }
   .contact .eyebrow { color: var(--sage); }
   .contact .lead { color: #b9b5aa; }
-  .contact-email { margin-top: 36px; font-size: 15px; color: #b9b5aa; }
+  .contact-email { margin-top: 28px; font-size: 15px; color: #b9b5aa; }
   .contact-email a { display: inline-block; margin-top: 6px; font: 400 26px/1.2 var(--serif); color: #fff; text-decoration: none; border-bottom: 1px solid #6d6a60; }
   .contact-email a:hover { border-color: #fff; }
   form { display: grid; gap: 22px; }
@@ -128,6 +130,7 @@
     .wrap { padding: 0 16px; }
     nav { display: none; }
     .mobile-cta { display: inline-block; }
+    .header-end { gap: 20px; }
     section { padding: 72px 0; }
     .hero { padding: 32px 0 64px; }
     .hero .wrap, .about .wrap, .events .wrap, .orchestral .wrap, .contact .wrap { grid-template-columns: 1fr; gap: 40px; }
@@ -136,7 +139,7 @@
     .about figure img { object-position: center 20%; }
     .cards, .notes { grid-template-columns: 1fr; }
     .facts { grid-template-columns: 1fr; gap: 20px; }
-    .occasions, .row { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -151,7 +154,12 @@
       <a href="#events">Private events</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="mobile-cta" href="#contact">Get in touch</a>
+    <div class="header-end">
+      <a class="mobile-cta" href="#contact">Get in touch</a>
+      <a class="ig" href="https://www.instagram.com/anastasiamusicians" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
   </div>
 </header>
 
@@ -161,10 +169,10 @@
     <div class="wrap">
       <div>
         <p class="eyebrow">Violin · Piano</p>
-        <h1>Violin and piano lessons for children and adults</h1>
-        <p class="lead">Patient, personal teaching from Anastasia, with over sixteen years of experience, from a child’s very first notes to exams and music scholarships.</p>
+        <h1>Violin and piano lessons for every level</h1>
+        <p class="lead">A flexible, student-centred approach from Anastasia, with over sixteen years of teaching experience, from a beginner’s first notes to top exam results and music scholarships.</p>
         <div class="actions">
-          <a class="btn" href="#contact" data-topic="Lessons for a child">Enquire about lessons</a>
+          <a class="btn" href="#contact" data-topic="Lessons">Enquire about lessons</a>
           <a class="btn ghost" href="#events">Music for private events</a>
         </div>
       </div>
@@ -177,26 +185,26 @@
   <section id="lessons" class="lessons">
     <div class="wrap">
       <p class="eyebrow">Lessons</p>
-      <h2>Every student is different, so every lesson is too.</h2>
-      <p class="lead">Lessons are shaped around each pupil’s age, goals and pace, so children and adults alike progress with confidence and enjoy playing.</p>
+      <h2>Every lesson is tailored to the student.</h2>
+      <p class="lead">Anastasia has developed her own teaching techniques, which she tailors to each student’s individual needs and abilities, so that every learner can progress confidently and reach their full musical potential.</p>
       <div class="cards">
         <div class="card">
           <h3>Violin</h3>
-          <p>From a young beginner’s first lesson to advanced repertoire: good habits, a beautiful sound and a love of playing.</p>
+          <p>All levels, from beginners to advanced.</p>
         </div>
         <div class="card">
           <h3>Piano</h3>
-          <p>A strong foundation in reading, technique and musicianship, for beginners and returning players.</p>
+          <p>All levels, from beginners to advanced.</p>
         </div>
       </div>
       <div class="notes">
         <div>
           <h4>Exams &amp; scholarships</h4>
-          <p>Anastasia’s students consistently achieve top results in graded exams, and many go on to win music scholarships.</p>
+          <p>Anastasia’s students consistently achieve top exam results and frequently earn music scholarships.</p>
         </div>
         <div>
           <h4>Getting started</h4>
-          <p>Send a short message about the student and what you’d like to achieve. Anastasia will reply with availability and fees.</p>
+          <p>Send a short message about the student and what you’d like to achieve, and Anastasia will get back to you.</p>
         </div>
       </div>
     </div>
@@ -205,15 +213,15 @@
   <section id="about" class="about">
     <div class="wrap">
       <figure>
-        <img src="images/sofa-portrait.jpg" alt="Anastasia seated with her violin at home" width="360" height="455" loading="lazy">
+        <img src="images/sofa-portrait.jpg" alt="Anastasia seated with her violin" width="360" height="455" loading="lazy">
       </figure>
       <div>
         <p class="eyebrow">About</p>
         <h2>Teacher and performer.</h2>
-        <p>Anastasia has taught students of every age and level for more than sixteen years. She holds a Master’s degree in Violin and Viola Performance, having studied at leading universities in both the UK and Russia.</p>
-        <p>Alongside teaching, she performs with orchestras in London and Oxford. That life on stage shapes her lessons: students learn not only the notes, but how to play with confidence and joy.</p>
+        <p>Anastasia has over sixteen years of experience teaching students at all levels. She holds a Master’s degree in Violin and Viola Performance, having graduated from leading universities in both the UK and Russia.</p>
+        <p>Alongside teaching, she performs with some of the leading orchestras in London and Oxford, combining her extensive performance background with a dedication to nurturing the next generation of musicians.</p>
         <ul class="facts">
-          <li><strong>16+</strong><span>years teaching children and adults</span></li>
+          <li><strong>16+</strong><span>years teaching students at all levels</span></li>
           <li><strong>Master’s</strong><span>in Violin &amp; Viola Performance, UK and Russia</span></li>
           <li><strong>London</strong><span>and Oxford, performing with leading orchestras</span></li>
         </ul>
@@ -225,20 +233,14 @@
     <div class="wrap">
       <div>
         <p class="eyebrow">Private events</p>
-        <h2>Live music, at home.</h2>
-        <p class="lead">Live violin for intimate occasions in your home or a private venue.</p>
-        <ul class="occasions">
-          <li>House concerts</li>
-          <li>Birthdays &amp; anniversaries</li>
-          <li>Dinner parties</li>
-          <li>Family celebrations</li>
-        </ul>
+        <h2>Live violin for private events.</h2>
+        <p class="lead">Anastasia is available to play at private events, including in your home. Get in touch with the date and occasion.</p>
         <div class="actions">
           <a class="btn" href="#contact" data-topic="Private event">Ask about your date</a>
         </div>
       </div>
       <figure>
-        <img src="images/at-home.jpg" alt="Anastasia playing the violin at home" width="640" height="360" loading="lazy">
+        <img src="images/at-home.jpg" alt="Anastasia playing the violin" width="640" height="360" loading="lazy">
       </figure>
     </div>
   </section>
@@ -251,8 +253,8 @@
         <p class="lead">Anastasia performs with some of the leading orchestras in London and Oxford, and is happy to hear about orchestral work.</p>
       </div>
       <figure>
-        <img src="images/orchestra.jpg" alt="Anastasia with fellow orchestral musicians backstage" width="640" height="481" loading="lazy">
-        <figcaption>Backstage with colleagues</figcaption>
+        <img src="images/orchestra.jpg" alt="Anastasia with fellow musicians" width="640" height="481" loading="lazy">
+        <figcaption>With fellow musicians</figcaption>
       </figure>
     </div>
   </section>
@@ -262,8 +264,9 @@
       <div>
         <p class="eyebrow">Contact</p>
         <h2>Get in touch.</h2>
-        <p class="lead">Whether it’s lessons for your child, lessons for yourself or music for a special occasion, send a message and Anastasia will get back to you.</p>
+        <p class="lead">For lessons, private events or orchestral work, send a message and Anastasia will get back to you.</p>
         <p class="contact-email">Or email directly<br><a href="mailto:ayaviolin@gmail.com">ayaviolin@gmail.com</a></p>
+        <p class="contact-email">Follow on Instagram<br><a href="https://www.instagram.com/anastasiamusicians" target="_blank" rel="noopener">@anastasiamusicians</a></p>
       </div>
 
       <form id="contact-form" novalidate>
@@ -280,10 +283,10 @@
         <div>
           <label for="topic">I’m enquiring about</label>
           <select id="topic" name="topic">
-            <option>Lessons for a child</option>
-            <option>Lessons for an adult</option>
+            <option>Lessons</option>
             <option>Private event</option>
-            <option>Orchestral or other work</option>
+            <option>Orchestral work</option>
+            <option>Something else</option>
           </select>
         </div>
         <div>
