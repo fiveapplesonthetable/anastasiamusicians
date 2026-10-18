@@ -1,55 +1,41 @@
-# Anastasia — violin and piano lessons website
+# Anastasia's website
 
-**Live site:** https://anastasiamusicians.pages.dev (Cloudflare Pages)
-**Also live, temporarily:** https://anastasiamusicians.vercel.app (Vercel, to be retired; see [Hosting](#hosting))
-**Old site (Squarespace):** https://www.anastasiamusicians.uk. This site replaces it.
+A one-page site for violin and piano lessons, private events and orchestral work, with a contact form.
+Nothing to install, nothing to pay for: the site is free to host, and every change is published automatically.
 
-A simple, one-page website: lessons, about, private events, orchestral work and a contact form.
-There is no database, no visitor login and nothing to install. Hosting is free on Cloudflare Pages.
+**Live site:** https://anastasiamusicians.pages.dev
 
-```
-index.html        all the words and the page layout
-styles.css        colours, fonts and spacing
-main.js           the contact form
-images/           the photos
-favicon.svg       the small "A" icon in the browser tab
-AGENTS.md         rules for anyone (or any AI assistant) editing the site
-.github/workflows/deploy.yml   publishes the site automatically
-```
+1. [What's in this folder](#whats-in-this-folder)
+2. [Editing the site](#editing-the-site)
+3. [Publishing](#publishing)
+4. [The contact form](#the-contact-form)
+5. [Taking it over yourself](#taking-it-over-yourself-fork-it-and-own-it)
+6. [Using your own domain](#using-your-own-domain-optional)
+7. [Getting found on Google and AI search](#getting-found-on-google-and-ai-search)
+8. [Sources](#sources)
 
----
+## What's in this folder
 
-## Making a change (no software needed)
+| | |
+|---|---|
+| `site/` | **The website.** This folder, and only this folder, is published. |
+| `site/index.html` | All the words and the page layout |
+| `site/styles.css` | Colours, fonts and spacing |
+| `site/main.js` | The contact form |
+| `site/images/` | The photos |
+| `README.md` | This guide |
+| `AGENTS.md` | Technical notes for AI assistants and helpers |
+| `.github/` | The automatic publishing |
 
-Every change saved on GitHub is **published automatically** within about a minute.
+## Editing the site
+
+Everything can be done on github.com in the browser. Each saved change ("commit") is published within about a minute.
 
 ### Change some text
-1. On GitHub, open `index.html` and click the **pencil icon** (Edit).
-2. Find the sentence with Ctrl+F / Cmd+F.
-3. Change only the words **between** the tags. For example, in `<h3>Violin</h3>`, change only `Violin`.
-4. Click **Commit changes**. The live site updates shortly after.
-
-### Change or add a photo
-1. Open the `images/` folder and choose **Add file → Upload files**. Use a short name with no spaces,
-   such as `concert-2026.jpg`. Photos about 1200–2000 pixels wide look sharp and still load quickly.
-2. Edit `index.html`, find the old photo name (for example `images/portrait.jpg`) and replace it with the new one.
-3. Update the `alt="…"` text next to it to briefly describe the photo, for blind visitors and Google.
-
-| Photo file | Where it appears |
-|---|---|
-| `images/portrait.jpg` | Top of the page |
-| `images/sofa-portrait.jpg` | About section |
-| `images/at-home.jpg` | Private events section |
-| `images/orchestra.jpg` | Orchestral section |
-
-### Add a short video
-Upload it to YouTube, then use **Share → Embed** and paste the code into `index.html` where it should appear.
-Uploading big video files to the site itself makes it slow.
-
-### Colours and fonts
-These are at the top of `styles.css`. For example, `--olive: #556036;` is the green used for buttons.
-
-### Where things are in `index.html`
+1. Open `site/index.html` and click the **pencil icon** (Edit).
+2. Find the sentence with Ctrl+F (Windows) or Cmd+F (Mac).
+3. Change only the words **between** the tags. In `<h3>Violin</h3>`, change only `Violin`.
+4. Click **Commit changes**.
 
 | Section | Search for |
 |---|---|
@@ -62,138 +48,116 @@ These are at the top of `styles.css`. For example, `--olive: #556036;` is the gr
 | Contact form | `id="contact"` |
 | Bottom line (email, Instagram) | `<footer>` |
 
----
+### Change or add a photo
+1. Open `site/images/` and choose **Add file → Upload files**. Use a short name with no spaces, such as
+   `concert-2026.jpg`. Photos 1200–2000 pixels wide look sharp and still load quickly.
+2. In `site/index.html`, find the old photo name (for example `images/portrait.jpg`) and replace it with the new one.
+3. Update the `alt="…"` text next to it so it briefly describes the new photo.
+
+| Photo | Where it appears |
+|---|---|
+| `images/portrait.jpg` | Top of the page (also used in link previews) |
+| `images/sofa-portrait.jpg` | About |
+| `images/at-home.jpg` | Private events |
+| `images/orchestra.jpg` | Orchestral |
+
+### Add a video
+Upload it to YouTube, click **Share → Embed**, and paste the code into `site/index.html` where it should appear.
+Video files uploaded to the site itself make it slow.
+
+### Colours and fonts
+At the top of `site/styles.css`. For example, `--olive: #556036;` is the green used for buttons.
+
+### Editing with Copilot (optional)
+On github.com, open the repository and click the **Copilot** icon at the top of the page to chat. Ask in plain English, for example
+*"Change the Violin lesson text to: All levels, from first notes to diploma."* or *"Replace the main photo with images/concert.jpg."*
+Copilot proposes the change; read it, then commit it. It is published like any other edit.
+Copilot has a free plan with monthly limits and paid plans; see github.com/features/copilot/plans. The repository already contains the rules it should follow (`AGENTS.md`).
+
+### Preview before publishing
+1. On the repository page, click **Code → Download ZIP**, then unzip it. Windows: right-click the ZIP → **Extract All**. Mac: double-click the ZIP.
+2. Open the `site` folder and double-click `index.html`. Windows hides file extensions, so it may show as just **index** with a browser icon;
+   if it opens in the wrong program, right-click → **Open with** → Chrome or Edge. Mac: double-click, or right-click → **Open With** → Safari or Chrome.
+
+The page then looks exactly as it will online. The contact form in the preview is real: it sends messages too.
+
+## Publishing
+
+### Automatic
+Every commit on GitHub publishes the site within about a minute. To watch it happen, open the **Actions** tab.
+A green tick means it's live; a red cross means something went wrong, and clicking it shows what.
+
+### By hand (drag and drop, no GitHub needed)
+1. Get the files: **Code → Download ZIP** on the repository page, then unzip (see Preview above).
+2. Log in at dash.cloudflare.com and go to **Workers & Pages → anastasiamusicians → Create deployment**.
+3. Drag the `site` folder from File Explorer (Windows) or Finder (Mac) into the browser window and confirm the deployment.
 
 ## The contact form
 
-When someone fills in the form, a service called **Web3Forms** (web3forms.com) emails the message
-to the inbox linked to the site's access key. The email subject looks like
+Messages are emailed by **Web3Forms** (web3forms.com) to the inbox linked to the site's access key, with a subject like
 `Website enquiry: Lessons from Jane Smith`. Pressing **Reply** answers the person who wrote.
 
-- **Free plan:** this covers a small teaching site's enquiries comfortably. See web3forms.com for current limits and paid plans.
-- **The access key** is `WEB3FORMS_ACCESS_KEY` at the top of `main.js`. It is **meant to be public**.
-  The form runs in the visitor's browser, so every visitor's browser has to see the key. Hiding it in a
-  private repo wouldn't help. The key only allows *sending* a message to her inbox: nobody can read past
-  enquiries, change settings or learn her email address with it. The worst misuse is spam, which the
-  hidden spam trap in the form helps to block.
-- **To change where messages go:** log in to web3forms.com and change the email for this key,
-  or create a new key for the new address and paste it into `main.js`.
-- **Messages not arriving?** Check the Gmail **Spam** and **Promotions** tabs.
-- If the service is ever down, the form asks visitors to email `ayaviolin@gmail.com` directly.
+- The access key is `WEB3FORMS_ACCESS_KEY` at the top of `site/main.js`. It is meant to be public: it can only *send* a message to the inbox, nothing else.
+- To change the inbox, get a new key on web3forms.com for the new address and paste it into `site/main.js`.
+- Messages not arriving? Check **Spam** and **Promotions** in Gmail.
+- If Web3Forms is ever down, the form asks visitors to email ayaviolin@gmail.com directly.
 
----
+## Taking it over yourself ("fork it and own it")
 
-## Handing the site over to Anastasia
+Fork the repository into your own GitHub account; from then on, your copy is the real site and this one is no longer needed.
+Secrets are never copied to a fork, so you add only your own, and the old ones never apply to you.
 
-The site is set up so that she can own everything, for free, in about 20 minutes. It needs three free
-accounts, two secrets and one key.
+1. Create an account at github.com.
+2. Open https://github.com/fiveapplesonthetable/anastasiamusicians and click **Fork → Create fork**.
+3. In your fork, open the **Actions** tab and click **I understand my workflows, go ahead and enable them** (forks have them off by default).
+4. Add the secret for the host you choose, Cloudflare or Vercel (below). Secrets live under **Settings → Secrets and variables → Actions → New repository secret**.
+5. Put your Web3Forms key in `site/main.js` (below).
+6. Commit any change, or open **Actions → Deploy → Run workflow**, and the site is published.
 
-1. **GitHub account:** she signs up at github.com. Then move this repo to her: in this repo, go to
-   **Settings → General → Danger Zone → Transfer ownership** and enter her username.
-   Transferring is better than forking: it keeps the history, and the automatic publishing just works.
-   If she forks it instead, she has to switch on the **Actions** tab in her fork once.
-2. **Cloudflare account (hosting):** she signs up at dash.cloudflare.com.
-   - **Create the token:** go to **My Profile → API Tokens → Create Token**, find the **"Edit Cloudflare Workers"**
-     template and click **Use template**. Set **Account Resources** to her account and **Zone Resources** to
-     **All zones**, then click **Continue to summary → Create Token**. Copy the token, which is shown only once.
-   - **Account ID:** on the **Workers & Pages** page, it's shown on the right.
-   - **Free the site address:** delete the old `anastasiamusicians` Pages project in the current Cloudflare
-     account, so that `anastasiamusicians.pages.dev` becomes available for her account.
-3. **GitHub secrets:** in her repo, go to **Settings** (top of the repo) **→ Secrets and variables → Actions**.
-   - Click **New repository secret**, name it `CLOUDFLARE_API_TOKEN`, paste the token and click **Add secret**.
-   - Do the same for `CLOUDFLARE_ACCOUNT_ID`, with the Account ID.
-   - Delete any old secrets left over from before: `VERCEL_*` and the previous `CLOUDFLARE_*`.
-     (Adding a secret with the same name replaces the old one.)
-4. **Web3Forms key (contact form):** on web3forms.com, she enters **ayaviolin@gmail.com** to get a free access key
-   by email. She pastes it into `WEB3FORMS_ACCESS_KEY` at the top of `main.js` and clicks **Commit changes**.
-5. **Publish and check:** that commit publishes the site. On the **Actions** tab, the **Deploy** run shows
-   each step going green. On the first run in a new Cloudflare account, the
-   **"Create the Pages project on first run"** step creates the project, and later runs skip it.
-   Then she opens https://anastasiamusicians.pages.dev and sends herself a test message.
-   - **Name taken?** If `anastasiamusicians` isn't available, pick another name. Go to **Settings → Secrets and
-     variables → Actions → Variables → New repository variable**, name it `PAGES_PROJECT` and enter the
-     new name. The site is then at `<that name>.pages.dev`.
-   - **Trying it out without changing anything:** on the **Actions** tab, open **Deploy → Run workflow**,
-     enter a test name such as `my-test-123` and run it. This publishes a copy at `my-test-123.pages.dev`,
-     which can be deleted afterwards in Cloudflare under **Workers & Pages**.
+**Site name:** the site is called `anastasiamusicians` on the host, so its address is `anastasiamusicians.pages.dev` (Cloudflare) or
+`anastasiamusicians.vercel.app` (Vercel). A name can only exist once per host, so the old copy must be deleted first (ask), or pick another
+name: under **Settings → Secrets and variables → Actions → Variables**, add a variable `PROJECT` with the new name.
 
-That's it. Vercel isn't needed. Each host only publishes if its secrets are present, so with only the
-Cloudflare secrets set, the Vercel step quietly skips.
+(The alternative is for the current owner to transfer the repository to you: **Settings → General → Transfer ownership**. Everything else is the same.)
 
-**Option B, no token at all (not tested yet):** instead of steps 2–3, in Cloudflare go to **Workers & Pages →
-Create → Pages → Connect to Git**, sign in to GitHub and choose this repo. Use these settings: framework
-**None**, build command `mkdir -p _site && cp -r index.html styles.css main.js favicon.svg images _site/`,
-and output directory `_site`. If new top-level files are added later, add them to that command. Cloudflare then
-publishes every change by itself. Leave the `CLOUDFLARE_*` secrets unset, so the Action skips its Cloudflare step.
+### Cloudflare (recommended)
+Free for business sites. Sign up at dash.cloudflare.com, then create a token:
+**My Profile → API Tokens → Create Token → "Edit Cloudflare Workers" → Use template → Account Resources: your account, Zone Resources: All zones → Continue to summary → Create Token.**
+Copy the token (it is shown only once) and add it as a GitHub secret named `CLOUDFLARE_API_TOKEN`. Done.
 
----
+### Vercel (the simple alternative)
+Sign up at vercel.com, then **Account Settings → Tokens → Create**, copy the token and add it as a GitHub secret named `VERCEL_TOKEN`. Done.
+Note that Vercel's free plan is officially for non-commercial use only.
 
-## Hosting
+### Web3Forms key
+On web3forms.com, enter **ayaviolin@gmail.com** and a free access key is emailed to you. In your fork, open `site/main.js`, click the pencil,
+paste the key into `WEB3FORMS_ACCESS_KEY` and click **Commit changes**. Then send yourself a test message from the live site.
 
-The site is published to **Cloudflare Pages** (free, project `anastasiamusicians`). During the changeover it
-is also published to **Vercel**. Every change pushed to `main` goes to both automatically, through
-`.github/workflows/deploy.yml`. The two hosts deploy independently, so if one fails the other still updates.
+## Using your own domain (optional)
 
-### Do we need a domain?
-No. **anastasiamusicians.pages.dev** works on its own, for free, forever. A custom domain such as
-`anastasiamusicians.uk` just looks a little more professional and costs about £5–10 a year. It's her choice.
-
-### How the deploy tokens are kept secret
-Publishing needs a Cloudflare token (and, for now, a Vercel token). These are stored as **encrypted
-GitHub repository secrets** under **Settings → Secrets and variables → Actions**:
-
-| Secret | What it is |
-|---|---|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare token allowed to deploy Pages and Workers |
-| `CLOUDFLARE_ACCOUNT_ID` | The Cloudflare account the project lives in |
-| `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID` | Vercel deploy access (remove when Vercel is retired) |
-
-- Nobody can view a secret after it is saved, not even the repo owner. It can only be replaced.
-- GitHub hides secrets in the Action logs.
-- **Forks never get the secrets.** Anyone can copy this public repo, but only people with write access to
-  *this* repo can publish to her site.
-- If a token is ever leaked, delete it in Cloudflare (or Vercel), create a new one and update the secret.
-
-### Retiring Vercel (once happy with Cloudflare)
-1. Delete the three `VERCEL_*` secrets in GitHub. The Vercel step then skips itself automatically.
-2. In Vercel, open the `anastasiamusicians` project and go to **Settings → Advanced → Delete Project**.
-3. Optionally, tidy up by deleting the `vercel:` job in `.github/workflows/deploy.yml` and the `.vercelignore` file.
-
-Vercel's free plan doesn't allow commercial sites (including ones advertising paid lessons), which is
-the main reason for moving.
-
-### Using her own domain (anastasiamusicians.uk), optional
+The site works without one. A domain such as `anastasiamusicians.uk` looks more professional and costs about £5–10 a year.
 The domain currently points at the old Squarespace site.
 
-- **Recommended, `www` plus a redirect:**
-  1. In Cloudflare, go to **Workers & Pages → anastasiamusicians → Custom domains → Set up a custom domain**,
-     enter `www.anastasiamusicians.uk` and follow the steps. Cloudflare shows a **CNAME** record
-     pointing to `anastasiamusicians.pages.dev`.
-  2. In Squarespace, go to **Settings → Domains → anastasiamusicians.uk → DNS settings**. Remove the
-     Squarespace records for `www`, add that CNAME, and add a Squarespace domain forward from
-     `anastasiamusicians.uk` to `https://www.anastasiamusicians.uk`.
-- **Simplest long term:** move the domain itself to Cloudflare. Cloudflare sells domains at cost, so
-  domain, hosting and DNS all live in one free account, and the bare `anastasiamusicians.uk` works
-  directly. For a `.uk` domain, Cloudflare (or any new registrar) gives you an **IPS tag**, and Squarespace
-  switches the domain to that tag. See Squarespace's help page on transferring a `.uk` domain away.
+1. In Cloudflare: **Workers & Pages → anastasiamusicians → Custom domains → Set up a custom domain**, enter `www.anastasiamusicians.uk` and follow the steps.
+   Cloudflare shows a **CNAME** record to add where the domain is managed (Squarespace: **Settings → Domains → DNS settings**), plus a forward
+   from `anastasiamusicians.uk` to `https://www.anastasiamusicians.uk`.
+   Simplest long term: move the domain itself to Cloudflare, so domain and site live in one free account.
+2. In `site/`, replace every `anastasiamusicians.pages.dev` with the new address (it appears in `index.html`, `robots.txt` and `sitemap.xml`). Commit.
+3. Send a test message from the new address, then cancel the Squarespace website plan (keep the domain).
 
-After either option:
-1. Change the two `https://anastasiamusicians.pages.dev` addresses in the `og:url` and `og:image` lines
-   of `index.html` to the new domain. These control link previews in WhatsApp and similar apps.
-2. Send a test message from the form.
-3. Cancel the Squarespace **website** plan. Keep the **domain** subscription until the domain has been transferred.
+## Getting found on Google and AI search
 
----
+The site itself is ready: plain text, a clear title and description, and a small block of facts in the form Google and AI assistants read.
+What makes the real difference for a local teacher happens off the site:
 
-## For developers
-
-- Run it locally with `python3 -m http.server 8000`, then open http://localhost:8000.
-- There is no build step and there are no dependencies. Please keep it that way.
-  See `AGENTS.md` for the content and design rules.
-- To deploy by hand, run `npx wrangler pages deploy <folder> --project-name=anastasiamusicians`.
-  Use a folder holding only the site files, as the workflow builds.
-
----
+- **Google Business Profile** (business.google.com, free): list "Violin and piano lessons with Anastasia" as a service-area business covering
+  Hackney and Islington, with the site address and email. This is what appears on Google Maps and in "violin teacher near me" searches.
+- **Say the same thing everywhere.** Use the same name, the same site address and the same email on Nextdoor, Instagram and Google.
+  Put the site address in the Instagram bio.
+- **Reviews.** Ask a few happy parents or students for a Google review. Reviews are the strongest signal for both Google and AI answers.
+- **Let the old site go.** Once this site is live on the final address, close the Squarespace site, so that there aren't two sites competing.
+- **Optional:** add the site to Google Search Console and Bing Webmaster Tools (Bing feeds ChatGPT and Copilot searches) and submit
+  `https://anastasiamusicians.pages.dev/sitemap.xml`. This also shows which searches bring people to the site.
 
 ## Sources
 
@@ -203,10 +167,9 @@ All facts and photos come from Anastasia's own published material, or were confi
 |---|---|
 | Bio, teaching experience, degree, orchestras, email | Her original site, anastasiamusicians.uk (Squarespace) |
 | Lessons offered: violin and piano | Her original site ("Violin and Piano Lessons with Anastasia") |
-| Private events, including at home | Confirmed with Anastasia |
-| Graded exams, the list of private-event occasions | Confirmed with Anastasia |
+| Private events, including at home; graded exams; the list of occasions | Confirmed with Anastasia |
 | Teaching in Hackney and Islington | Her Nextdoor business page, "Violin and Piano Lessons in Hackney and Islington" |
 | `images/portrait.jpg` | Her original site |
 | `images/sofa-portrait.jpg`, `images/at-home.jpg`, `images/orchestra.jpg` | Her Instagram, [@anastasiamusicians](https://www.instagram.com/anastasiamusicians) |
 
-The Instagram photos are compressed copies. Replacing them with the full-size originals will make them look sharper.
+The Instagram photos are compressed copies; the full-size originals would look sharper.
