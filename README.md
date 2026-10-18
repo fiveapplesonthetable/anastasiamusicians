@@ -45,6 +45,7 @@ Everything can be done on github.com in the browser. Each saved change ("commit"
 | About | `id="about"` |
 | Private events | `id="events"` |
 | Orchestral | `class="orchestral` |
+| Common questions | `id="faq"` |
 | Contact form | `id="contact"` |
 | Bottom line (email, Instagram) | `<footer>` |
 
@@ -147,17 +148,40 @@ The domain currently points at the old Squarespace site.
 
 ## Getting found on Google and AI search
 
-The site itself is ready: plain text, a clear title and description, and a small block of facts in the form Google and AI assistants read.
-What makes the real difference for a local teacher happens off the site:
+The site is ready for search: a clear title and description, plain text with the words people search for, a questions section, and a small block
+of facts in the form Google and AI assistants read. For a local teacher, what matters most happens **off** the site. Checklist, in order of impact:
 
-- **Google Business Profile** (business.google.com, free): list "Violin and piano lessons with Anastasia" as a service-area business covering
-  Hackney and Islington, with the site address and email. This is what appears on Google Maps and in "violin teacher near me" searches.
-- **Say the same thing everywhere.** Use the same name, the same site address and the same email on Nextdoor, Instagram and Google.
-  Put the site address in the Instagram bio.
-- **Reviews.** Ask a few happy parents or students for a Google review. Reviews are the strongest signal for both Google and AI answers.
-- **Let the old site go.** Once this site is live on the final address, close the Squarespace site, so that there aren't two sites competing.
-- **Optional:** add the site to Google Search Console and Bing Webmaster Tools (Bing feeds ChatGPT and Copilot searches) and submit
-  `https://anastasiamusicians.pages.dev/sitemap.xml`. This also shows which searches bring people to the site.
+### 1. Google Business Profile (free, about 15 minutes)
+This is what appears on Google Maps and in "violin teacher near me" searches, and what AI assistants quote for local recommendations.
+1. Go to business.google.com and sign in with a Google account.
+2. Business name: `Violin and Piano Lessons with Anastasia`.
+3. Category: type **Music instructor** and choose it. Then add **Piano instructor** as a second category, and if typing "violin" offers a violin category, add that too.
+4. When asked for an address, say you **don't** have a shop customers visit and that you serve customers at their location, then add the service areas **Hackney** and **Islington**.
+5. Website: `https://anastasiamusicians.pages.dev`. Email: ayaviolin@gmail.com. Leave the phone number empty.
+6. Description, copy and paste:
+   > Violin and piano lessons for all levels in Hackney and Islington, North London, with Anastasia. Over sixteen years of teaching experience, from a beginner's first notes to top graded-exam results and music scholarships. Every lesson is tailored to the student. Anastasia holds a Master's degree in Violin and Viola Performance from universities in the UK and Russia and performs with leading orchestras in London and Oxford. Also available to play live violin at private events, including in your home. Get in touch through the website or by email.
+7. Add the photos from `site/images/` and complete the verification Google asks for (a video or a postcard).
+
+### 2. Ask for Google reviews
+Reviews are the strongest signal for Google and for AI answers. In your Business Profile, find **Ask for reviews** and copy the link, then send this to a few parents or students:
+> Hi [name], I hope [student] is enjoying the [violin/piano] lessons. If you have a minute, a short Google review would help other families find me: [link]. Thank you so much, Anastasia
+
+### 3. Say the same thing everywhere
+Use the same name, website address and email on Google, Instagram and Nextdoor.
+- **Instagram bio**, copy and paste, and put `https://anastasiamusicians.pages.dev` in the website field:
+  > Violin & piano lessons in Hackney & Islington, North London. All levels, graded exams & scholarships. Live violin for private events.
+- **Nextdoor** (your existing business page "Violin and Piano Lessons in Hackney and Islington"): add the website address and the email, and use the Business Profile description above.
+
+### 4. Tell Google and Bing about the site (optional, 10 minutes)
+This gets the site indexed faster and shows you which searches bring visitors. Bing also feeds ChatGPT and Microsoft Copilot.
+1. Go to search.google.com/search-console, choose **URL prefix**, enter `https://anastasiamusicians.pages.dev/` and click **Continue**.
+2. Under **HTML tag**, copy the line that starts `<meta name="google-site-verification"`. On GitHub, edit `site/index.html`, paste it on its own line
+   just below `<meta charset="utf-8">`, and commit. Wait a minute for it to publish, then click **Verify**.
+3. In Search Console, open **Sitemaps**, enter `sitemap.xml` and click **Submit**.
+4. Go to bing.com/webmasters, sign in, and choose **Import** from Google Search Console. That copies the site and sitemap in one step.
+
+### 5. Let the old site go
+Once you are happy with this site, close the Squarespace website (keep the domain if you want it), so that two sites aren't competing for the same searches.
 
 ## Sources
 

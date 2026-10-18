@@ -28,7 +28,17 @@ Explain things simply, make small safe changes, and show her what changed. `READ
 - No phone number. Contact is the form plus `ayaviolin@gmail.com`. Instagram: https://www.instagram.com/anastasiamusicians.
 - No photos or videos of students unless she confirms written parental consent.
 - When you add a fact or photo, add its source to the Sources table in `README.md`.
-- Keep the JSON-LD block in `index.html` in step with the page text.
+- Not confirmed, so don't claim: viola lessons (her Master's is in Violin and Viola Performance; that is the only honest viola mention),
+  online lessons, adult or child students specifically, prices, availability.
+
+## Search and AI answers
+- The visible page is the source of truth; the JSON-LD `Person` block in `index.html` restates the same facts (job title, description, url,
+  image, email, Instagram, credential, work locations, offers). Change both together, and only with facts from the page.
+- The `#faq` section (`.qa`) is plain `h3` + `p` pairs. Answers are only facts already on the page, reworded. There is deliberately **no
+  `FAQPage` JSON-LD**: Google retired FAQ rich results in May 2026, and the visible text is what AI answer engines read.
+- Title and meta description name the instruments and area (Hackney, Islington, North London) once, naturally. Don't stuff keywords.
+- Alt texts describe what is actually in the photo, in plain words; look at the image before writing one.
+- A Google Search Console verification `<meta>` tag, if she adds one, belongs in `<head>` next to the charset line.
 
 ## Design rules
 - Off-white background, charcoal text, olive accent (CSS variables in `:root`). Cormorant Garamond for headings, Inter for body.
