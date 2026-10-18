@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anastasiamusicians.pages.dev/sitemap.xml

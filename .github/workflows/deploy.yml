@@ -1,6 +1,6 @@
-# Publishes the site whenever a change lands on main.
-# Each host deploys only if its secrets are set (Settings → Secrets and variables → Actions),
-# so Cloudflare, Vercel or both can be used. The jobs are independent: one failing never blocks the other.
+# Publishes the site/ folder whenever a change lands on main (or when run by hand from the Actions tab).
+# Each host deploys only if its token exists in Settings → Secrets and variables → Actions,
+# so Cloudflare, Vercel or both can be used. The two jobs are independent.
 name: Deploy
 
 on:
@@ -9,55 +9,58 @@ on:
   workflow_dispatch:
     inputs:
       project:
-        description: "Cloudflare Pages project name (leave empty for the usual one)"
+        description: "Project name on the host (leave empty for the usual one)"
         required: false
+
+permissions:
+  contents: read
 
 concurrency:
   group: deploy
   cancel-in-progress: true
+
+env:
+  # The site address is <PROJECT>.pages.dev or <PROJECT>.vercel.app. To use a different name,
+  # set a repository variable PROJECT (Settings → Secrets and variables → Actions → Variables).
+  PROJECT: ${{ inputs.project || vars.PROJECT || 'anastasiamusicians' }}
 
 jobs:
   cloudflare:
     runs-on: ubuntu-latest
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      # Only needed if the token can see more than one Cloudflare account.
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      # The site address is <PROJECT>.pages.dev. To use a different name, set a repository variable
-      # PAGES_PROJECT (Settings → Secrets and variables → Actions → Variables).
-      PROJECT: ${{ inputs.project || vars.PAGES_PROJECT || 'anastasiamusicians' }}
       WRANGLER: npx --yes wrangler@4.111.0
     steps:
-      - name: Skip if Cloudflare is not set up
-        if: env.CLOUDFLARE_API_TOKEN == ''
-        run: echo "::notice::No CLOUDFLARE_API_TOKEN secret, so skipping the Cloudflare deploy."
-      - uses: actions/checkout@v4
-        if: env.CLOUDFLARE_API_TOKEN != ''
-      # Publish only the website itself, not the docs or hidden folders.
-      - name: Collect site files
-        if: env.CLOUDFLARE_API_TOKEN != ''
-        run: rsync -a --exclude='.*' --exclude='*.md' ./ _site/
-      - name: Create the Pages project on first run
-        if: env.CLOUDFLARE_API_TOKEN != ''
+      - if: env.CLOUDFLARE_API_TOKEN == ''
+        run: echo "::notice::No CLOUDFLARE_API_TOKEN secret, so skipping Cloudflare."
+      - if: env.CLOUDFLARE_API_TOKEN != ''
+        uses: actions/checkout@v4
+      - if: env.CLOUDFLARE_API_TOKEN != ''
+        name: Deploy to Cloudflare Pages
         run: |
-          if ! $WRANGLER pages project list | grep -qw "$PROJECT"; then
+          # First run only: create the project.
+          if ! $WRANGLER pages project list --json | jq -e --arg p "$PROJECT" 'any(.[]; .["Project Name"] == $p)' > /dev/null; then
             $WRANGLER pages project create "$PROJECT" --production-branch=main
           fi
-      - name: Deploy to Cloudflare Pages
-        if: env.CLOUDFLARE_API_TOKEN != ''
-        run: $WRANGLER pages deploy _site --project-name="$PROJECT" --branch=main --commit-dirty=true
+          $WRANGLER pages deploy site --project-name="$PROJECT" --branch=main --commit-dirty=true
 
   vercel:
     runs-on: ubuntu-latest
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL: npx --yes vercel@54.17.3
     steps:
-      - name: Skip if Vercel is not set up
-        if: env.VERCEL_TOKEN == ''
-        run: echo "::notice::No VERCEL_TOKEN secret, so skipping the Vercel deploy."
-      - uses: actions/checkout@v4
-        if: env.VERCEL_TOKEN != ''
-      - name: Deploy to Vercel
-        if: env.VERCEL_TOKEN != ''
-        run: npx --yes vercel@54.17.3 deploy --prod --yes --token "$VERCEL_TOKEN"
+      - if: env.VERCEL_TOKEN == ''
+        run: echo "::notice::No VERCEL_TOKEN secret, so skipping Vercel."
+      - if: env.VERCEL_TOKEN != ''
+        uses: actions/checkout@v4
+      - if: env.VERCEL_TOKEN != ''
+        name: Deploy to Vercel
+        working-directory: site
+        run: |
+          # Deploys to the token's first team. Linking creates the project on the first run.
+          TEAM=$(curl -sf -H "Authorization: Bearer $VERCEL_TOKEN" https://api.vercel.com/v2/teams | jq -r '.teams[0].slug')
+          $VERCEL link --yes --project "$PROJECT" --scope "$TEAM" --token "$VERCEL_TOKEN"
+          $VERCEL deploy --prod --yes --token "$VERCEL_TOKEN"
