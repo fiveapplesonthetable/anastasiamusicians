@@ -50,10 +50,11 @@ Everything can be done on github.com in the browser. Each saved change ("commit"
 | Bottom line (email, Instagram) | `<footer>` |
 
 ### Change or add a photo
-1. Open `site/images/` and choose **Add file → Upload files**. Use a short name with no spaces, such as
-   `concert-2026.jpg`. Photos 1200–2000 pixels wide look sharp and still load quickly.
-2. In `site/index.html`, find the old photo name (for example `images/portrait.jpg`) and replace it with the new one.
-3. Update the `alt="…"` text next to it so it briefly describes the new photo.
+1. Shrink the photo first, so the page stays fast: open squoosh.app (free, nothing to install), drop the photo in, set the width
+   to about 1200 pixels under **Resize**, and click the download button. Aim for a file under 200 KB.
+2. Open `site/images/` and choose **Add file → Upload files**. Use a short name with no spaces, such as `concert-2026.jpg`.
+3. In `site/index.html`, find the old photo name (for example `images/portrait.jpg`) and replace it with the new one.
+4. Update the `alt="…"` text next to it so it briefly describes the new photo, and the `width="…" height="…"` to the new photo's size in pixels.
 
 | Photo | Where it appears |
 |---|---|

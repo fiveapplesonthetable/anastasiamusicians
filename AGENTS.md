@@ -16,6 +16,7 @@ Explain things simply, make small safe changes, and show her what changed. `READ
 | `site/styles.css` | Design tokens in `:root`, layout, mobile styles under `@media (max-width: 860px)` |
 | `site/main.js` | Contact form: posts JSON to `https://api.web3forms.com/submit` |
 | `site/images/` | Photos (sources listed in `README.md`) |
+| `site/fonts/` | Cormorant Garamond and Inter as variable woff2 (weights 400–500, latin), self-hosted so nothing waits on Google; OFL licences alongside |
 | `site/favicon.svg`, `site/robots.txt`, `site/sitemap.xml` | Icon and search-engine files |
 | `.github/workflows/deploy.yml` | Publishing. `.github/copilot-instructions.md` points GitHub Copilot at this file |
 
@@ -43,7 +44,11 @@ Explain things simply, make small safe changes, and show her what changed. `READ
 ## Design rules
 - Off-white background, charcoal text, olive accent (CSS variables in `:root`). Cormorant Garamond for headings, Inter for body.
 - Works on phones and desktops: at 390px wide there must be no horizontal scroll.
-- Images: under about 300 KB, 1200–2000px wide, always with `alt`, `width` and `height`. Below-the-fold images use `loading="lazy"`.
+- Images: one plain JPEG per photo, about 1200px wide and under 200 KB, saved progressive, always with `alt`, `width` and `height` matching the file
+  (prevents layout shift). Only the hero loads eagerly (`fetchpriority="high"`); everything below the fold uses `loading="lazy"`.
+  No `srcset`/`<picture>`/WebP variants: they would mean several files per photo, which breaks her upload-one-file workflow, and the gain is small at these sizes.
+  The hero is pre-cropped to the 4:5 box the CSS displays, so no bytes are spent on pixels that are cropped away.
+- Fonts: served from `site/fonts/` with `@font-face` in `styles.css` (`font-display: swap`). Don't add Google Fonts `<link>`s back, and don't add weights or families.
 - Relative paths only (`images/…`, `styles.css`), so the page also works opened as a local file.
 - Prefer YouTube embeds to hosted video.
 
@@ -110,7 +115,7 @@ counting as duplicate content.
 5. If you touched the form, send one test enquiry from the live site and confirm it arrives.
 
 ## Don't
-- Don't add a build step, framework, package.json, analytics, cookie banners or third-party scripts beyond Google Fonts and Web3Forms.
+- Don't add a build step, framework, package.json, analytics, cookie banners or any third-party request beyond the Web3Forms form post.
 - Don't put anything outside `site/` that needs publishing, and don't put docs or secrets inside `site/`.
 - Don't add `pull_request_target`, write permissions or unpinned tools to the workflow.
 - Don't echo secrets in workflow logs or commit `.env*`, `.vercel/` or `.wrangler/`.

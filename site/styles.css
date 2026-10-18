@@ -1,3 +1,7 @@
+/* Fonts are served from this site (fonts/), so the page doesn't wait on Google. Licences in fonts/LICENSE.txt. */
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 400 500; font-display: swap; src: url("fonts/cormorant-garamond.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400 500; font-display: swap; src: url("fonts/inter.woff2") format("woff2"); }
+
 :root {
   --paper: #f5f2ea;
   --paper-2: #ece7db;
@@ -114,7 +118,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--s
 .form-status.err { color: #e8a598; }
 .hp { position: absolute; left: -9999px; }
 
-footer { background: var(--charcoal); color: #8d8a80; font-size: 14px; border-top: 1px solid #3a3a35; }
+footer { background: var(--charcoal); color: #97948a; font-size: 14px; border-top: 1px solid #3a3a35; }
 footer .wrap { display: flex; justify-content: space-between; padding-top: 28px; padding-bottom: 28px; gap: 16px; flex-wrap: wrap; }
 footer .links { display: flex; gap: 24px; }
 footer a { text-decoration: none; }

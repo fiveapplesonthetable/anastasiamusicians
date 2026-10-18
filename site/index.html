@@ -39,9 +39,6 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="main.js" defer></script>
 </head>
@@ -79,7 +76,7 @@
         </div>
       </div>
       <figure>
-        <img src="images/portrait.jpg" alt="Anastasia, violin and piano teacher, standing with her violin and bow in front of a carved fireplace" width="841" height="1269" fetchpriority="high">
+        <img src="images/portrait.jpg" alt="Anastasia, violin and piano teacher, standing with her violin and bow in front of a carved fireplace" width="841" height="1051" fetchpriority="high">
       </figure>
     </div>
   </section>
@@ -237,7 +234,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" required placeholder="For lessons: the student’s age, instrument and level. For events: the date, place and occasion."></textarea>
         </div>
-        <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+        <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn" type="submit">Send message</button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
