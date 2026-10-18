@@ -47,7 +47,7 @@ Everything can be done on github.com in the browser. Each saved change ("commit"
 | Orchestral | `class="orchestral` |
 | Common questions | `id="faq"` |
 | Contact form | `id="contact"` |
-| Bottom line (email, Instagram) | `<footer>` |
+| Bottom line (email, Instagram, Google reviews) | `<footer>` |
 
 ### Change or add a photo
 1. Shrink the photo first, so the page stays fast: open squoosh.app (free, nothing to install), drop the photo in, set the width
@@ -199,6 +199,7 @@ All facts and photos come from Anastasia's own published material, or were confi
 | Bio, teaching experience, degree, orchestras, email | Her original site, anastasiamusicians.uk (Squarespace) |
 | Lessons offered: violin and piano | Her original site ("Violin and Piano Lessons with Anastasia") |
 | Private events, including at home; graded exams; teaching children; plays viola; the list of occasions | Confirmed with Anastasia |
+| Google Business Profile ("Violin and Piano Lessons with Anastasia") | Her own Google review link |
 | Teaching in Hackney and Islington | Her Nextdoor business page, "Violin and Piano Lessons in Hackney and Islington" |
 | `images/portrait.jpg` | Her original site |
 | `images/sofa-portrait.jpg`, `images/at-home.jpg`, `images/orchestra.jpg` | Her Instagram, [@anastasiamusicians](https://www.instagram.com/anastasiamusicians) |
