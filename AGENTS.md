@@ -28,7 +28,7 @@ Explain things simply, make small safe changes, and show her what changed. `READ
 - No phone number. Contact is the form plus `ayaviolin@gmail.com`. Instagram: https://www.instagram.com/anastasiamusicians.
 - No photos or videos of students unless she confirms written parental consent.
 - When you add a fact or photo, add its source to the Sources table in `README.md`.
-- Not confirmed, so don't claim: viola lessons (her Master's is in Violin and Viola Performance; that is the only honest viola mention),
+- She plays viola as well as violin (confirmed), so performing on viola can be mentioned. Not confirmed, so don't claim: viola lessons,
   online lessons, adult students specifically, prices, availability. (Teaching children is confirmed.)
 
 ## Search and AI answers

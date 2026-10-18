@@ -191,7 +191,7 @@ All facts and photos come from Anastasia's own published material, or were confi
 |---|---|
 | Bio, teaching experience, degree, orchestras, email | Her original site, anastasiamusicians.uk (Squarespace) |
 | Lessons offered: violin and piano | Her original site ("Violin and Piano Lessons with Anastasia") |
-| Private events, including at home; graded exams; teaching children; the list of occasions | Confirmed with Anastasia |
+| Private events, including at home; graded exams; teaching children; plays viola; the list of occasions | Confirmed with Anastasia |
 | Teaching in Hackney and Islington | Her Nextdoor business page, "Violin and Piano Lessons in Hackney and Islington" |
 | `images/portrait.jpg` | Her original site |
 | `images/sofa-portrait.jpg`, `images/at-home.jpg`, `images/orchestra.jpg` | Her Instagram, [@anastasiamusicians](https://www.instagram.com/anastasiamusicians) |
