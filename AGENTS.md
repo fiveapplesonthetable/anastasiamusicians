@@ -6,12 +6,11 @@ Explain things simply, make small, safe changes and show her what changed.
 ## The site
 - A static, single page: `index.html` (content), `styles.css`, `main.js` (contact form) and `images/`. There is no build step, framework or package manager. Keep it that way.
 - It is hosted on Vercel, project `anastasiamusicians`. Pushing to `main` deploys automatically (`.github/workflows/deploy.yml`). To deploy by hand, run `vercel deploy --prod`.
-- The contact form posts JSON from the browser to `https://formsubmit.co/ajax/<FORM_EMAIL>`, and FormSubmit emails the message on.
-  - `FORM_EMAIL` is the constant at the top of `main.js`.
-  - The visitor's `email` field becomes the Reply-To, and `_subject` sets the subject line.
-  - `_honey` is a hidden spam trap. Leave it in place.
-  - FormSubmit needs a one-time **activation per page URL** (Origin/Referer). The first submission from a new domain triggers an "Activate FormSubmit" email to `FORM_EMAIL`, and nothing is delivered until she clicks it. Remind her whenever the domain changes.
-  - A successful response has `success: "true"`, as a string.
+- The contact form (`main.js`) posts JSON from the browser to `https://api.web3forms.com/submit` with the public `WEB3FORMS_ACCESS_KEY`. Web3Forms emails the message to the inbox linked to that key.
+  - `replyto` is the visitor's email, and `subject` sets the subject line.
+  - `botcheck` is a hidden spam-trap checkbox. Leave it in place.
+  - Submissions must come from a browser. Web3Forms rejects server-side posts on the free plan, so test it in a real browser.
+  - If the request fails, the form shows a message asking visitors to email her directly.
 
 ## Content rules (important)
 - **Use her first name only, "Anastasia".** Don't add her surname anywhere: copy, titles, alt text, metadata, project names or commit messages.
@@ -26,7 +25,7 @@ Explain things simply, make small, safe changes and show her what changed.
 - The page must work on phones and desktops. At 390px wide there must be no horizontal scrolling, and the mobile styles are under `@media (max-width: 860px)` in `styles.css`.
 - Keep images reasonably small, under about 300 KB each and around 1200–2000px wide. Always set `alt`, `width` and `height`.
 - Prefer YouTube embeds over hosting video files.
-- If the domain changes, update the `og:url` and `og:image` URLs in `index.html`, and remind her to activate FormSubmit for the new address.
+- If the domain changes, update the `og:url` and `og:image` URLs in `index.html`, and send a test enquiry from the new address.
 - When you add a fact or photo, add its source to the Sources table in `README.md`.
 
 ## Checking a change

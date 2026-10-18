@@ -65,17 +65,17 @@ These are at the top of `styles.css`. For example, `--olive: #556036;` is the gr
 
 ## The contact form
 
-When someone fills in the form, a free service called **FormSubmit** (formsubmit.co) emails the
-message to **ayaviolin@gmail.com**. The email subject looks like
+When someone fills in the form, a service called **Web3Forms** (web3forms.com) emails the message
+to the inbox linked to the site's access key. The email subject looks like
 `Website enquiry: Lessons from Jane Smith`. Pressing **Reply** answers the person who wrote.
 
-- **First time on a new web address:** FormSubmit sends one email titled
-  *"Action Required: Activate FormSubmit on …"*. Open it and click **Activate Form**.
-  Until then, the form shows "Sorry, something went wrong", and visitors are asked to email directly.
-  This happens **once per web address**, so it happens again after moving to `anastasiamusicians.uk`.
+- **Free plan:** this covers a small teaching site's enquiries comfortably. See web3forms.com for current limits and paid plans.
+- **The access key** is `WEB3FORMS_ACCESS_KEY` at the top of `main.js`. It is designed to be public,
+  so it is fine on a public website and repo.
+- **To change where messages go:** log in to web3forms.com and change the email for this key,
+  or create a new key for the new address and paste it into `main.js`.
 - **Messages not arriving?** Check the Gmail **Spam** and **Promotions** tabs.
-- **To change the email address:** change `FORM_EMAIL` at the top of `main.js` and the
-  `ayaviolin@gmail.com` addresses in `index.html` and `main.js`. Then activate it as above.
+- If the service is ever down, the form asks visitors to email `ayaviolin@gmail.com` directly.
 
 ---
 
@@ -92,7 +92,7 @@ plus up to a day for the change to spread. Transferring the domain away from Squ
 3. Wait until Vercel shows both domains as **Valid** (usually within an hour, at most about 48 hours).
 4. In `index.html`, change the two `https://anastasiamusicians.vercel.app` addresses in the
    `og:url` and `og:image` lines to `https://anastasiamusicians.uk`. These control link previews in WhatsApp and similar apps.
-5. Send one test message from the form at the new address, then click **Activate Form** in the email that arrives.
+5. Send one test message from the form at the new address to check it arrives.
 6. Cancel the Squarespace **website** plan. Keep the **domain** subscription, which is billed separately,
    unless you transfer the domain.
 

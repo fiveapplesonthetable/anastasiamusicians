@@ -1,6 +1,6 @@
-// Enquiries are forwarded by FormSubmit (formsubmit.co) to this address.
-// FormSubmit asks the address to confirm once per site address before it forwards anything.
-const FORM_EMAIL = "ayaviolin@gmail.com";
+// Enquiries are emailed by Web3Forms (web3forms.com). The access key is linked to the
+// inbox that receives them; it is meant to be public, so it is fine in this file.
+const WEB3FORMS_ACCESS_KEY = "3b4250d5-b837-4dd0-ba25-ad295011725d";
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -27,17 +27,19 @@ form.addEventListener("submit", async event => {
   button.textContent = "Sending…";
   try {
     const data = Object.fromEntries(new FormData(form));
-    const response = await fetch(`https://formsubmit.co/ajax/${FORM_EMAIL}`, {
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
         ...data,
-        _subject: `Website enquiry: ${data.topic} from ${data.name}`,
-        _template: "table",
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: `Website enquiry: ${data.topic} from ${data.name}`,
+        from_name: "Anastasia's website",
+        replyto: data.email,
       }),
     });
     const result = await response.json();
-    if (String(result.success) !== "true") throw new Error(result.message);
+    if (!result.success) throw new Error(result.message);
     form.reset();
     status.textContent = "Thank you, your message has been sent. Anastasia will be in touch soon.";
     status.classList.add("ok");
